@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>API Tester</title>
+</head>
+<body>
+  <h1>Project 1 API Tester</h1>
+  <button id="health">Check /health</button>
+  <pre id="out"></pre>
+<script>
+const API_BASE = location.origin;
+function show(obj){ document.getElementById('out').textContent = JSON.stringify(obj, null, 2); }
+document.getElementById('health').onclick = async ()=>{
+  const r = await fetch(API_BASE + '/health');
+  show(await r.json());
+};
+</script>
+</body>
+</html>
